@@ -726,7 +726,7 @@ function setupScene() {
     {
       // 13
       name: "PagodaToSun",
-      text: "To the Sun",
+      text: "HIGHER",
       positions: [new Point3D(40, 23, 0.15)],
       size: new Size(25, 55),
       mode: "shiftUp",
@@ -900,7 +900,7 @@ function setupScene() {
     {
       // 17
       name: "SunToPagoda",
-      text: "To the Ruin",
+      text: "highER",
       positions: [new Point3D(1.4, 100, 0.15)],
       size: new Size(25, 55),
       mode: "shiftRight",
@@ -1073,7 +1073,7 @@ function setupScene() {
     {
       // 21
       name: "SunToPassage",
-      text: "To the Passage",
+      text: "HIGHER",
       positions: [new Point3D(0, 101, 0.15)],
       size: new Size(25, 55),
       mode: "shiftUp",
@@ -1096,7 +1096,7 @@ function setupScene() {
     {
       // 22
       name: "PassageToSun",
-      text: "To the Sun",
+      text: "higher",
       positions: [new Point3D(0, 199, 0.15)],
       size: new Size(25, 55),
       mode: "shiftDown",
@@ -1337,7 +1337,7 @@ function setupScene() {
     {
       // 27
       name: "PassageToNight",
-      text: "To the Night",
+      text: "HIGHER",
       positions: [new Point3D(0, 201, 0.15)],
       size: new Size(25, 55),
       mode: "shiftUp",
@@ -1360,7 +1360,7 @@ function setupScene() {
     {
       // 28
       name: "NightToPassage",
-      text: "To the Passage",
+      text: "higher",
       positions: [new Point3D(0, 219, 0.15)],
       size: new Size(25, 55),
       mode: "shiftDown",

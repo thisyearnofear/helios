@@ -58,6 +58,35 @@
     />
     <meta property="og:image" content="" />
     <meta property="og:image" content="" />
+
+    <style>
+      .zora-embed-container {
+        display: none;
+        position: fixed;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        width: 400px;
+        height: 472px;
+        z-index: 1000;
+      }
+      .zora-embed-container.visible {
+        display: block;
+      }
+      .zora-embed-wrapper {
+        position: relative;
+        width: 100%;
+        height: 100%;
+      }
+      .zora-embed-wrapper iframe {
+        border: 0;
+        background-color: transparent;
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+      }
+    </style>
   </head>
   <body
     oncontextmenu="return false"
@@ -65,6 +94,18 @@
     onload="init()"
     onresize="metrics()"
   >
+    <div id="zora-embed" class="zora-embed-container">
+      <div class="zora-embed-wrapper">
+        <iframe
+          src="https://zora.co/collect/base:0xa7f7368d3f27515844abacd452252a4bcf824317/3/embed?referrer=0x1e17B4FB12B29045b29475f74E536Db97Ddc5D40"
+          allowtransparency="true"
+          allowfullscreen="true"
+          sandbox="allow-pointer-lock allow-same-origin allow-scripts allow-popups"
+        >
+        </iframe>
+      </div>
+    </div>
+
     <canvas id="cnvs" class="unselectable"></canvas>
 
     <!-- Start of StatCounter Code for Default Guide -->

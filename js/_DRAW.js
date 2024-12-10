@@ -24,45 +24,52 @@ function drawIntro() {
   if (scene === 0) {
     cxa.fillStyle = "#000";
     cxa.fillRect(0, 0, fullX, fullY);
+
+    cxa.fillStyle = "#fff";
+    cxa.strokeStyle = "#fff";
+    cxa.textAlign = "center";
+
+    if (loadReady) {
+      cxa.font = "100 " + headerType + "px Raleway";
+      cxa.fillText("HIGHER".toUpperCase(), halfX, halfY - 10 * units);
+
+      var s = 1 + Math.random() * 0.2;
+      var ay = halfY + 30 * units;
+
+      cxa.fillStyle = "rgb(0, 128, 0)";
+      cxa.strokeStyle = "rgb(0, 128, 0)";
+      cxa.lineWidth = 2;
+
+      cxa.beginPath();
+      cxa.moveTo(halfX, ay + 10 * s * units);
+      cxa.lineTo(halfX, ay - 10 * s * units);
+      cxa.moveTo(halfX - 8 * s * units, ay - 5 * s * units);
+      cxa.lineTo(halfX, ay - 15 * s * units);
+      cxa.lineTo(halfX + 8 * s * units, ay - 5 * s * units);
+      cxa.stroke();
+    } else {
+      cxa.font = "400 " + midType + "px Raleway";
+      cxa.fillText("Loading Sounds".toUpperCase(), halfX, halfY - 4 * units);
+
+      cxa.fillRect(halfX - 6 * units, halfY + 4 * units, 12 * units, 2 * units);
+
+      cxa.beginPath();
+      cxa.moveTo(halfX - 60 * units, halfY + 20 * units);
+      cxa.lineTo(halfX + 60 * units, halfY + 20 * units);
+      cxa.moveTo(halfX + 60 * units, halfY + 32 * units);
+      cxa.lineTo(halfX - 60 * units, halfY + 32 * units);
+      cxa.stroke();
+
+      cxa.fillRect(
+        halfX - 60 * units,
+        halfY + 20 * units,
+        (120 / loadTotal) * loadedLoops * units,
+        12 * units
+      );
+    }
+    cxa.font = "400 " + dataType + "px Raleway";
+    cxa.fillText("Chrome Recommended", halfX, halfY + 170 * units);
   }
-
-  cxa.fillStyle = "#fff";
-  cxa.strokeStyle = "#fff";
-  cxa.textAlign = "center";
-  if (loadReady) {
-    cxa.font = "100 " + headerType + "px Raleway";
-    cxa.fillText("PAPA | HIGHER".toUpperCase(), halfX, halfY - 10 * units);
-
-    var s = 1 + Math.random() * 0.2;
-    var ay = halfY + 30 * units;
-    cxa.beginPath();
-    cxa.moveTo(halfX - 20 * s * units, ay - 10 * s * units);
-    cxa.lineTo(halfX + 20 * s * units, ay - 10 * s * units);
-    cxa.lineTo(halfX, ay + 10 * s * units);
-    cxa.closePath();
-    cxa.fill();
-  } else {
-    cxa.font = "400 " + midType + "px Raleway";
-    cxa.fillText("Loading Sounds".toUpperCase(), halfX, halfY - 4 * units);
-
-    cxa.fillRect(halfX - 6 * units, halfY + 4 * units, 12 * units, 2 * units);
-
-    cxa.beginPath();
-    cxa.moveTo(halfX - 60 * units, halfY + 20 * units);
-    cxa.lineTo(halfX + 60 * units, halfY + 20 * units);
-    cxa.moveTo(halfX + 60 * units, halfY + 32 * units);
-    cxa.lineTo(halfX - 60 * units, halfY + 32 * units);
-    cxa.stroke();
-
-    cxa.fillRect(
-      halfX - 60 * units,
-      halfY + 20 * units,
-      (120 / loadTotal) * loadedLoops * units,
-      12 * units
-    );
-  }
-  cxa.font = "400 " + dataType + "px Raleway";
-  cxa.fillText("Chrome Recommended", halfX, halfY + 170 * units);
 }
 
 //-------------------------------------------------------------------------------------------
@@ -148,7 +155,7 @@ function drawScene() {
   //cxa.fillStyle = shardCols[4].toString();
   cxa.font = "400 " + midType + "px Raleway";
   cxa.textAlign = "center";
-  cxa.fillText("Papa | Higher".toUpperCase(), halfX, fullY - 30 * units);
+  cxa.fillText("Papa".toUpperCase(), halfX, fullY - 30 * units);
   cxa.fillRect(halfX - 6 * units, fullY - 21 * units, 12 * units, 2 * units);
 
   // order button //
@@ -216,7 +223,7 @@ function drawScene() {
 
       var yo = orderY * units;
 
-      var btnText = "MINT HIGHER BY PAPA".toUpperCase();
+      var btnText = "MINT".toUpperCase();
       var bw = cxa.measureText(btnText).width;
 
       if (orderOver) {
@@ -1059,57 +1066,25 @@ function drawPanel() {
   cxa.font = "400 italic " + dataType + "px PT Sans";
   cxa.textAlign = "center";
 
-  cxa.fillText("All instrumentals from Papa albums.", halfX, cy + 45 * units);
-  cxa.fillText("Dojang Records.", halfX, cy + 60 * units);
+  cxa.fillText("Papa", halfX, cy + 45 * units);
+  cxa.fillText("Dojang", halfX, cy + 60 * units);
 
-  var tw = cxa.measureText("Dojang Records.").width * 0.5;
-  var lw = cxa.measureText("Dojang Records.").width;
-  if (linkOver[3]) {
+  cxa.fillText("Mint HIGHER", halfX, cy - 65 * units);
+
+  var tw = cxa.measureText("Mint HIGHER").width * 0.5;
+  if (linkOver[1]) {
     cxa.lineWidth = 3;
   } else {
     cxa.lineWidth = 1;
   }
-
   cxa.beginPath();
-  cxa.moveTo(halfX + tw - units, cy + 66 * units);
-  cxa.lineTo(halfX + tw - lw + units, cy + 66 * units);
+  cxa.moveTo(halfX - tw, cy - 59 * units);
+  cxa.lineTo(halfX + tw, cy - 59 * units);
   cxa.stroke();
 
-  cxa.fillText("Mint the HIGHER album here:", halfX, cy - 65 * units);
-
-  cxa.font = "300 " + headerType + "px Raleway";
-  cxa.fillText("PAPA | HIGHER".toUpperCase(), halfX, halfY - 10 * units);
-
-  lw = 0;
-  if (linkOver[0]) {
-    lw = 20;
-  }
-  cxa.fillRect(
-    halfX - 166 * units - lw * 0.5 * units,
-    cy - 10 * units,
-    12 * units + lw * units,
-    2 * units
-  );
-  lw = 0;
-  if (linkOver[1]) {
-    lw = 20;
-  }
-  cxa.fillRect(
-    halfX - 6 * units - lw * 0.5 * units,
-    cy - 10 * units,
-    12 * units + lw * units,
-    2 * units
-  );
-  lw = 0;
-  if (linkOver[2]) {
-    lw = 20;
-  }
-  cxa.fillRect(
-    halfX + 154 * units - lw * 0.5 * units,
-    cy - 10 * units,
-    12 * units + lw * units,
-    2 * units
-  );
+  var arrowOffset = Math.sin(Date.now() / 300) * 3; // Creates a smooth up/down motion
+  cxa.font = "24px Arial";
+  cxa.fillText("↑", halfX, cy - 40 * units + arrowOffset);
 }
 
 //-------------------------------------------------------------------------------------------
