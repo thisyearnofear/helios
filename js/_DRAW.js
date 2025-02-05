@@ -68,7 +68,7 @@ function drawIntro() {
       );
     }
     cxa.font = "400 " + dataType + "px Raleway";
-    cxa.fillText("Chrome Recommended", halfX, halfY + 170 * units);
+    cxa.fillText("Fire, Aim, Ready", halfX, halfY + 170 * units);
   }
 }
 
